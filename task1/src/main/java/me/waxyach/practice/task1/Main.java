@@ -60,13 +60,7 @@ public class Main {
         System.out.println("Generating new parameters...");
         double voltage = Math.random() * 220 + 10;
 
-        calculation.init(
-                voltage,
-                randomResist(),
-                randomResist(),
-                randomResist(),
-                randomResist()
-        );
+        calculation.init(voltage, randomResist(), randomResist(), randomResist(), randomResist());
 
         calculation.show();
     }

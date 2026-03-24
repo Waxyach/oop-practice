@@ -1,9 +1,9 @@
 package me.waxyach.practice.task1;
 
+import java.util.Arrays;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 public class CircuitDataTest {
 
@@ -27,6 +27,8 @@ public class CircuitDataTest {
         Assertions.assertArrayEquals(expectedCurrents, calculation.getData().getBinaryCurrents());
 
         // Перевіряємо особливість transient: масив resistances не серіалізується і повинен стати null
-        Assertions.assertNull( calculation.getData().getResistances(), "Поле resistances має бути null після десеріалізації (transient)");
+        Assertions.assertNull(
+                calculation.getData().getResistances(),
+                "Поле resistances має бути null після десеріалізації (transient)");
     }
 }

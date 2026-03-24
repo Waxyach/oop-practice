@@ -1,11 +1,11 @@
 package me.waxyach.practice.task1;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.io.Serial;
-import java.io.Serializable;
 
 /**
  * Клас для збереження параметрів ланцюга й результатів розрахунків.

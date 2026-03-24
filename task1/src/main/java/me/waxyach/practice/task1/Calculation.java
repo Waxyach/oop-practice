@@ -1,8 +1,8 @@
 package me.waxyach.practice.task1;
 
-import lombok.Getter;
-
 import java.io.*;
+
+import lombok.Getter;
 
 /**
  * Клас для обчислення струмів та керування серіалізацією.
