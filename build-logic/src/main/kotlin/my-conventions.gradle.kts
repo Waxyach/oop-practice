@@ -3,10 +3,20 @@ plugins {
     id("com.diffplug.spotless")
 }
 
+val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(21))
     withSourcesJar()
     withJavadocJar()
+}
+
+dependencies {
+    compileOnly(libs.findLibrary("lombok").get())
+    annotationProcessor(libs.findLibrary("lombok").get())
+
+    testImplementation(platform(libs.findLibrary("junit-bom").get()))
+    testImplementation(libs.findBundle("junit-testing").get())
 }
 
 spotless {
@@ -21,7 +31,6 @@ spotless {
             "io",
             "net",
             "com",
-            "de",
             "me.waxyach",
         )
         targetExclude("build/generated/**")
@@ -54,9 +63,12 @@ tasks {
         }
     }
 
-    register("openDocs") {
-        group = "documentation"
-        dependsOn("javadoc")
+    withType<Test>().configureEach {
+        useJUnitPlatform()
+
+        testLogging {
+            events("passed", "skipped", "failed")
+        }
     }
 
     withType<AbstractArchiveTask>().configureEach {
