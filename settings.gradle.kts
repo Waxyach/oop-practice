@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "practice"
 
 include("task1")
+include("task2")

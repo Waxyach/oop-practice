@@ -3,6 +3,7 @@ package me.waxyach.practice.task1;
 import java.io.Serial;
 import java.io.Serializable;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,6 +14,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
+@EqualsAndHashCode
 public class CircuitData implements Serializable {
 
     @Serial
