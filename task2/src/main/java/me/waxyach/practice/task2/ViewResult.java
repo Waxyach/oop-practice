@@ -3,9 +3,7 @@ package me.waxyach.practice.task2;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import lombok.Getter;
-
 import me.waxyach.practice.task1.CircuitData;
 
 /**
@@ -18,8 +16,18 @@ public class ViewResult implements View {
 
     private static final int DEFAULT_SIZE = 5;
 
+    private final int size;
+
     @Getter
-    private List<CircuitData> dataList = new ArrayList<>();
+    protected List<CircuitData> dataList = new ArrayList<>();
+
+    public ViewResult() {
+        this(DEFAULT_SIZE);
+    }
+
+    public ViewResult(int size) {
+        this.size = size;
+    }
 
     /**
      * Заповнює колекцію новими випадковими сценаріями розрахунків.
@@ -27,8 +35,7 @@ public class ViewResult implements View {
     @Override
     public void viewInit() {
         dataList.clear();
-
-        for (int i = 0; i < DEFAULT_SIZE; i++) {
+        for (int i = 0; i < size; i++) {
             dataList.add(createRandomCircuitData());
         }
     }
@@ -40,8 +47,10 @@ public class ViewResult implements View {
     private CircuitData createRandomCircuitData() {
         CircuitData scenario = new CircuitData();
         double u = Math.random() * 220 + 10;
-        double[] r = {randomR(), randomR(), randomR(), randomR()};
-
+        double[] r = new double[4];
+        for (int i = 0; i < 4; i++) {
+            r[i] = randomR();
+        }
         scenario.setVoltage(u);
         scenario.setResistances(r);
 
@@ -53,26 +62,36 @@ public class ViewResult implements View {
         return scenario;
     }
 
-    /**
-     * Генерує випадкове значення опору в діапазоні від 1 до 51 Ом.
-     * @return випадкове число double.
-     */
-    private double randomR() {
-        return Math.random() * 50 + 1;
+    /** Виводить заголовок результатів. */
+    @Override
+    public void viewHeader() {
+        System.out.println("--- Calculation Results ---");
     }
 
-    /**
-     * Відображає поточний вміст колекції на екрані.
-     */
+    /** Виводить основну частину (вміст колекції). */
     @Override
-    public void viewShow() {
-        System.out.println("\n--- Current Collection State ---");
+    public void viewBody() {
         if (dataList.isEmpty()) {
-            System.out.println("Collection is empty.");
+            System.out.println("No data available.");
         } else {
             dataList.forEach(System.out::println);
         }
-        System.out.println("--------------------------------");
+    }
+
+    /** Виводить футер результатів. */
+    @Override
+    public void viewFooter() {
+        System.out.println("--- End of Results ---");
+    }
+
+    /**
+     * Викликає Header, Body та Footer, які можуть бути перевизначені в підкласах.
+     */
+    @Override
+    public final void viewShow() {
+        viewHeader();
+        viewBody();
+        viewFooter();
     }
 
     /**
@@ -96,5 +115,13 @@ public class ViewResult implements View {
         try (ObjectInputStream is = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
             dataList = (List<CircuitData>) is.readObject();
         }
+    }
+
+    /**
+     * Генерує випадкове значення опору в діапазоні від 1 до 51 Ом.
+     * @return випадкове число double.
+     */
+    private double randomR() {
+        return Math.random() * 50 + 1;
     }
 }

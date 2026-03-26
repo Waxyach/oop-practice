@@ -7,7 +7,7 @@ public class CalculationTest {
 
     /** Перевірка основної функціональності розрахунків */
     @Test
-    public void testCalculation() {
+    void testCalculation() {
         Calculation calculation = new Calculation();
 
         calculation.init(100.0, 10.0, 20.0, 25.0, 50.0);

@@ -9,7 +9,7 @@ public class CircuitDataTest {
 
     /** Перевірка серіалізації та коректності відновлення даних */
     @Test
-    public void testRestore() {
+    void testRestore() {
         Calculation calculation = new Calculation();
         calculation.init(220.0, 5.0, 10.0, 15.0, 20.0);
 

@@ -7,10 +7,23 @@ import java.io.IOException;
  */
 public interface View {
 
+    /** Виводить заголовок результатів. */
+    void viewHeader();
+
+    /** Виводить основну частину (вміст колекції). */
+    void viewBody();
+
+    /** Виводить підвал результатів. */
+    void viewFooter();
+
     /**
-     * Відображає об'єкт або колекцію об'єктів цілком (включаючи заголовок та підвал).
+     * Метод для відображення всього об'єкта.
      */
-    void viewShow();
+    default void viewShow() {
+        viewHeader();
+        viewBody();
+        viewFooter();
+    }
 
     /**
      * Виконує ініціалізацію даних для обчислень.
