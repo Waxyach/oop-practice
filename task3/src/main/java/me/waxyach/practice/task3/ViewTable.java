@@ -1,8 +1,10 @@
 package me.waxyach.practice.task3;
 
 import java.util.Formatter;
+
 import lombok.Getter;
 import lombok.Setter;
+
 import me.waxyach.practice.task1.CircuitData;
 import me.waxyach.practice.task2.ViewResult;
 
@@ -13,7 +15,8 @@ public class ViewTable extends ViewResult {
 
     private static final int DEFAULT_WIDTH = 50;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private int width;
 
     public ViewTable() {
@@ -60,10 +63,9 @@ public class ViewTable extends ViewResult {
                 avgR /= 4;
             }
 
-            System.out.printf("| %-10.2f | %-12.2f | %-20s |\n",
-                    item.getVoltage(),
-                    avgR,
-                    String.join(", ", item.getBinaryCurrents()));
+            System.out.printf(
+                    "| %-10.2f | %-12.2f | %-20s |\n",
+                    item.getVoltage(), avgR, String.join(", ", item.getBinaryCurrents()));
         }
     }
 

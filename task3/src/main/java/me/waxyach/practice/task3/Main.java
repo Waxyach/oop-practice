@@ -1,10 +1,10 @@
 package me.waxyach.practice.task3;
 
-import me.waxyach.practice.task2.View;
-import me.waxyach.practice.task2.Viewable;
-
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+
+import me.waxyach.practice.task2.View;
+import me.waxyach.practice.task2.Viewable;
 
 public class Main {
 

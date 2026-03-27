@@ -3,7 +3,9 @@ package me.waxyach.practice.task2;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+
 import lombok.Getter;
+
 import me.waxyach.practice.task1.CircuitData;
 
 /**
