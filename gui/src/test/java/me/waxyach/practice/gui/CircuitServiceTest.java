@@ -1,12 +1,15 @@
 package me.waxyach.practice.gui;
 
-import me.waxyach.practice.gui.service.CircuitService;
-import me.waxyach.practice.task1.CircuitData;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.ArrayList;
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import me.waxyach.practice.gui.service.CircuitService;
+import me.waxyach.practice.task1.CircuitData;
 
 class CircuitServiceTest {
 
@@ -20,7 +23,7 @@ class CircuitServiceTest {
 
         CircuitData data = new CircuitData();
         data.setVoltage(10.0);
-        data.setResistances(new double[]{5.0, 10.0});
+        data.setResistances(new double[] {5.0, 10.0});
         testList.add(data);
     }
 

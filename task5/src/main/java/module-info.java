@@ -3,7 +3,6 @@ module task5 {
     requires task2;
     requires task3;
     requires task4;
-
     requires static lombok;
 
     exports me.waxyach.practice.task5;

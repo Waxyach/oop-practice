@@ -1,13 +1,13 @@
 package me.waxyach.practice.gui.component;
 
+import java.util.Comparator;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import me.waxyach.practice.task1.CircuitData;
 
-import java.util.Comparator;
+import me.waxyach.practice.task1.CircuitData;
 
 /**
  * Кастомний компонент лінійного графіка ({@link LineChart}), призначений для візуалізації

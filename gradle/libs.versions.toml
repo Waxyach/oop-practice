@@ -3,6 +3,9 @@ spotless = "7.0.1"
 axion = "1.18.17"
 lombok = "1.18.42"
 junit = "5.12.0"
+testfx = "4.0.17"
+hamcrest = "2.2"
+assertj = "3.27.7"
 
 [libraries]
 gradle-spotless = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "spotless" }
@@ -11,10 +14,13 @@ lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" 
 junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter" }
 junit-platform-launcher = { group = "org.junit.platform", name = "junit-platform-launcher" }
+testfx-core = { group = "org.testfx", name = "testfx-core", version.ref = "testfx" }
+testfx-junit = { group = "org.testfx", name = "testfx-junit5", version.ref = "testfx" }
+hamcrest = { group = "org.hamcrest", name = "hamcrest", version.ref = "hamcrest" }
+assertj = { group = "org.assertj", name = "assertj-core", version.ref = "assertj" }
 
 [plugins]
 axion = { id = "pl.allegro.tech.build.axion-release", version.ref = "axion" }
-javafx = { id = "org.openjfx.javafxplugin", version = "0.1.0" }
 
 [bundles]
 junit-testing = ["junit-jupiter", "junit-platform-launcher"]

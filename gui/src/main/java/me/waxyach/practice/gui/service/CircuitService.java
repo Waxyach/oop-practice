@@ -1,8 +1,9 @@
 package me.waxyach.practice.gui.service;
 
-import me.waxyach.practice.task1.CircuitData;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import me.waxyach.practice.task1.CircuitData;
 
 /**
  * Клас для обробки та маніпулювання даними електричних ланцюгів {@link CircuitData}.
@@ -17,26 +18,28 @@ public class CircuitService {
      * Повертає порожній список, якщо оригінал порожній.
      */
     public List<CircuitData> cloneList(List<CircuitData> original) {
-        return original.stream().map(data -> {
-            CircuitData copy = new CircuitData();
-            copy.setVoltage(data.getVoltage());
+        return original.stream()
+                .map(data -> {
+                    CircuitData copy = new CircuitData();
+                    copy.setVoltage(data.getVoltage());
 
-            double[] res = data.getResistances();
-            if (res != null) {
-                copy.setResistances(res.clone());
-            } else {
-                copy.setResistances(new double[0]);
-            }
+                    double[] res = data.getResistances();
+                    if (res != null) {
+                        copy.setResistances(res.clone());
+                    } else {
+                        copy.setResistances(new double[0]);
+                    }
 
-            String[] bin = data.getBinaryCurrents();
-            if (bin != null) {
-                copy.setBinaryCurrents(bin.clone());
-            } else {
-                copy.setBinaryCurrents(new String[0]);
-            }
+                    String[] bin = data.getBinaryCurrents();
+                    if (bin != null) {
+                        copy.setBinaryCurrents(bin.clone());
+                    } else {
+                        copy.setBinaryCurrents(new String[0]);
+                    }
 
-            return copy;
-        }).collect(Collectors.toList());
+                    return copy;
+                })
+                .collect(Collectors.toList());
     }
 
     /**

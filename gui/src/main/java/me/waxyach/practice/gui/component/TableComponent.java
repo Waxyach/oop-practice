@@ -1,14 +1,15 @@
 package me.waxyach.practice.gui.component;
 
+import java.lang.reflect.Field;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.TextFieldTableCell;
-import me.waxyach.practice.task1.Displayable;
+
 import me.waxyach.practice.gui.util.ReflectionHelper;
 import me.waxyach.practice.task1.CircuitData;
-import java.lang.reflect.Field;
+import me.waxyach.practice.task1.Displayable;
 
 /**
  * Кастомний компонент таблиці ({@link TableView}), призначений для відображення

@@ -1,5 +1,10 @@
 package me.waxyach.practice.gui;
 
+import java.io.File;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,17 +16,12 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
 import me.waxyach.practice.gui.component.ChartComponent;
 import me.waxyach.practice.gui.component.TableComponent;
 import me.waxyach.practice.gui.service.CircuitService;
 import me.waxyach.practice.task1.CircuitData;
 import me.waxyach.practice.task2.ViewResult;
-
-import java.io.File;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
 
 /**
  * Головний клас додатка, що керує життєвим циклом програми та
@@ -55,11 +55,7 @@ public class Main extends Application {
         ChartComponent chart = new ChartComponent(observableData);
 
         TabPane tabs = new TabPane();
-        tabs.getTabs().addAll(
-                createTab("Таблиця", table),
-                createTab("Графік", chart),
-                createTab("Лог", logArea)
-        );
+        tabs.getTabs().addAll(createTab("Таблиця", table), createTab("Графік", chart), createTab("Лог", logArea));
 
         BorderPane root = new BorderPane();
         root.setCenter(tabs);
@@ -120,16 +116,44 @@ public class Main extends Application {
         Button maxBtn = new Button("MAX");
         Button minBtn = new Button("MIN");
 
-        avgBtn.setOnAction(e -> logger.stat("Середня U", observableData.stream().mapToDouble(CircuitData::getVoltage).average().orElse(0)));
-        maxBtn.setOnAction(e -> logger.stat("Макс. U", observableData.stream().mapToDouble(CircuitData::getVoltage).max().orElse(0)));
-        minBtn.setOnAction(e -> logger.stat("Мін. U", observableData.stream().mapToDouble(CircuitData::getVoltage).min().orElse(0)));
+        avgBtn.setOnAction(e -> logger.stat(
+                "Середня U",
+                observableData.stream()
+                        .mapToDouble(CircuitData::getVoltage)
+                        .average()
+                        .orElse(0)));
+        maxBtn.setOnAction(e -> logger.stat(
+                "Макс. U",
+                observableData.stream()
+                        .mapToDouble(CircuitData::getVoltage)
+                        .max()
+                        .orElse(0)));
+        minBtn.setOnAction(e -> logger.stat(
+                "Мін. U",
+                observableData.stream()
+                        .mapToDouble(CircuitData::getVoltage)
+                        .min()
+                        .orElse(0)));
 
         TextField voltageInput = new TextField("10.0");
         voltageInput.setPrefWidth(55);
         Button raiseBtn = new Button("Підняти U");
         raiseBtn.setOnAction(e -> handleVoltageChange(voltageInput.getText()));
 
-        bar.getChildren().addAll(saveBtn, restoreBtn, undoBtn, s1, genBtn, s2, avgBtn, maxBtn, minBtn, new Separator(), voltageInput, raiseBtn);
+        bar.getChildren()
+                .addAll(
+                        saveBtn,
+                        restoreBtn,
+                        undoBtn,
+                        s1,
+                        genBtn,
+                        s2,
+                        avgBtn,
+                        maxBtn,
+                        minBtn,
+                        new Separator(),
+                        voltageInput,
+                        raiseBtn);
         return bar;
     }
 

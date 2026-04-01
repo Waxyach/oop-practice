@@ -1,9 +1,10 @@
 package me.waxyach.practice.gui;
 
-import javafx.scene.control.TextArea;
-import me.waxyach.practice.task1.CircuitData;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import javafx.scene.control.TextArea;
+
+import me.waxyach.practice.task1.CircuitData;
 
 /**
  * Менеджер логування, що забезпечує виведення системних повідомлень, помилок

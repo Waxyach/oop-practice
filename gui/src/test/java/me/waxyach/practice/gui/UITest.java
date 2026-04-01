@@ -1,14 +1,15 @@
 package me.waxyach.practice.gui;
 
+import static org.testfx.api.FxAssert.verifyThat;
+
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
 import org.testfx.matcher.control.LabeledMatchers;
-
-import static org.testfx.api.FxAssert.verifyThat;
 
 public class UITest extends ApplicationTest {
 
@@ -59,8 +60,9 @@ public class UITest extends ApplicationTest {
 
         clickOn("Підняти U");
 
-        verifyThat(".text-area", (TextArea t) -> t.getText().contains("ERROR")
-                && t.getText().contains("числове значення"));
+        verifyThat(
+                ".text-area",
+                (TextArea t) -> t.getText().contains("ERROR") && t.getText().contains("числове значення"));
     }
 
     @Test
@@ -68,7 +70,9 @@ public class UITest extends ApplicationTest {
         clickOn("Згенерувати");
 
         clickOn("AVG");
-        verifyThat(".text-area", (TextArea t) -> t.getText().contains("STAT") && t.getText().contains("Середня U"));
+        verifyThat(
+                ".text-area",
+                (TextArea t) -> t.getText().contains("STAT") && t.getText().contains("Середня U"));
 
         clickOn("MAX");
         verifyThat(".text-area", (TextArea t) -> t.getText().contains("Макс. U"));

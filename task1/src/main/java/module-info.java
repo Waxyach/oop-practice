@@ -3,5 +3,7 @@ module task1 {
 
     exports me.waxyach.practice.task1;
 
-    opens me.waxyach.practice.task1 to javafx.base, javafx.graphics;
+    opens me.waxyach.practice.task1 to
+            javafx.base,
+            javafx.graphics;
 }
