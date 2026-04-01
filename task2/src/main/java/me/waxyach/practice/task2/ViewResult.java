@@ -14,10 +14,11 @@ import me.waxyach.practice.task1.CircuitData;
  */
 public class ViewResult implements View {
 
-    private static final String FILE_NAME = "CircuitData.bin";
+    public static final String FILE_NAME = "CircuitData.bin";
 
-    private static final int DEFAULT_SIZE = 5;
+    public static final int DEFAULT_SIZE = 5;
 
+    @Getter
     private final int size;
 
     @Getter
