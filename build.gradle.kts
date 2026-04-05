@@ -13,7 +13,6 @@ scmVersion {
     checks { snapshotDependencies = false }
     val strategy: String = project.findProperty("release.incrementer")?.toString() ?: "incrementPatch"
     versionIncrementer.set { Version.valueOf(strategy) }
-    hooks { pre("push") }
 }
 project.version = scmVersion.version
 
